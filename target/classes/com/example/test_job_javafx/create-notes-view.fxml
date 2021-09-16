@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="TOP_CENTER" spacing="10.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.test_job_javafx.CreateNotesController">
+    <Label text="Note title!" />
+    <TextField fx:id="noteTitle" text="Note title!" />
+    <Label text="Note text!" />
+    <TextArea fx:id="textAreaNotes" />
+    <Label fx:id="timeOfCreation" text="Time of creation 09.15.2021 5:08!" />
+    <HBox alignment="TOP_CENTER" spacing="20.0">
+        <Button fx:id="yesCreate" onAction="#yesCreateNotesClick" text="Yes Create!" />
+        <Button fx:id="noCreate" onAction="#noCreateNotesClick" text="No Create!" />
+    </HBox>
+</VBox>
