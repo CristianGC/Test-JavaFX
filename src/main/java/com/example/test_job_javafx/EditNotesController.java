@@ -1,5 +1,6 @@
 package com.example.test_job_javafx;
 
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -9,8 +10,10 @@ import java.io.IOException;
 
 public class EditNotesController {
 
-    public Button yesEdit;
-    public Button noEdit;
+    @FXML
+    private Button yesEdit;
+    @FXML
+    private Button noEdit;
 
     public void showWindow() throws IOException {
         final FXMLLoader loader = new FXMLLoader(getClass().getResource("edit-notes-view.fxml"));

@@ -4,6 +4,7 @@ import com.example.test_job_javafx.model.Notes;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -14,8 +15,10 @@ import java.io.IOException;
 
 public class DeleteNotesController {
 
-    public Button yesDelete;
-    public Button noDelete;
+    @FXML
+    private Button yesDelete;
+    @FXML
+    private Button noDelete;
     private final ListView<String> listViewNotes = new ListView<String>();
     private ObservableList<Notes> notesData = FXCollections.observableArrayList();
 
@@ -35,6 +38,7 @@ public class DeleteNotesController {
     }
 
     public void deleteNotes(AppController appController){
+        /*
         System.out.println(appController.listViewNotes.getItems());
         System.out.println(appController.notesData.addAll());
 
@@ -46,6 +50,7 @@ public class DeleteNotesController {
         this.listViewNotes.setItems(appController.listViewNotes.getItems());
         System.out.println(this.listViewNotes);
         this.notesData = appController.notesData;
+         */
     }
 
     public void  yesDelete(){

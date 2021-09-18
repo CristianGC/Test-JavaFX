@@ -5,12 +5,6 @@ public class Notes {
     private String heading;
     private String text;
 
-    /**
-     * Default constructor.
-     *
-     * @param heading
-     * @param text
-     */
     public Notes(String heading, String text) {
         this.setHeading(heading);
         this.setText(text);

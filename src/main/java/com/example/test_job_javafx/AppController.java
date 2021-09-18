@@ -20,25 +20,31 @@ import java.util.ResourceBundle;
 
 public class AppController implements Initializable {
 
-    /**
-     * Данные, в виде наблюдаемого списка адресатов.
-     */
     public final ObservableList<Notes> notesData = FXCollections.observableArrayList();
-
     @FXML
-    public ListView<String> listViewNotes;
-    public Label heading;
-    public Label timeOfCreation;
-    public Button createNotes;
-    public Button editNotes;
-    public Button deleteNotes;
-    public TextArea textArea;
+    private ListView<String> listViewNotes;
+    @FXML
+    private Label heading;
+    @FXML
+    private Label timeOfCreation;
+    @FXML
+    private Button createNotes;
+    @FXML
+    private Button editNotes;
+    @FXML
+    private Button deleteNotes;
+    @FXML
+    private TextArea textArea;
+    private List<String> stringList = new ArrayList<String>();
 
     public AppController() {
         // В качестве образца добавляем некоторые данные
         notesData.add(new Notes("Hans", " Opisania Muster"));
         notesData.add(new Notes("Ruth", " Opisania Mueller"));
         notesData.add(new Notes("Heinz", " Opisania Kurz"));
+        notesData.add(new Notes("Hans", " Opisania Ghinea"));
+        notesData.add(new Notes("Ruth", " Opisania Saaa"));
+        notesData.add(new Notes("Heinz", " Opisania GAgsa"));
     }
 
     @FXML
@@ -46,7 +52,6 @@ public class AppController implements Initializable {
         CreateNotesController createNotesController = new CreateNotesController();
         createNotesController.showWindow();
         createNotesController.setMainApp(this);
-        //createNotesController.addElemnt(listViewNotes);
     }
 
     @FXML
@@ -63,7 +68,7 @@ public class AppController implements Initializable {
         deleteNotesController.deleteNotes(this);
        */
 
-        if (1 <= listViewNotes.getItems().size()){
+        if (1 <= listViewNotes.getItems().size()) {
             int selectedID = this.listViewNotes.getSelectionModel().getSelectedIndex();
             this.listViewNotes.getItems().remove(selectedID);
             this.notesData.remove(selectedID);
@@ -72,29 +77,11 @@ public class AppController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-/*
-        listViewNotes.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
 
-            @Override
-            public void changed(ObservableValue<? extends MyDataModel> observable, MyDataModel oldValue, MyDataModel newValue) {
-                // Your action here
-                System.out.println("Selected item: " + newValue);
-            }
-        });
- */
-
-       this.notesData.addAll(
-                new Notes("Hans", " Opisania Ghinea"),
-                new Notes("Ruth", " Opisania Saaa"),
-                new Notes("Heinz", " Opisania GAgsa")
-        );
-
-        List<String> stringList = new ArrayList<String>();
-
-        for (int i = 0; i < notesData.size(); i++){
-            stringList.add(this.notesData.get(i ).getHeading());
-            System.out.println("stringList: " + stringList);
-            this.listViewNotes.getItems().add(stringList.get(i));
+        for (int i = 0; i < notesData.size(); i++) {
+            this.stringList.add(this.notesData.get(i).getHeading());
+            System.out.println("stringList: " + this.stringList);
+            this.listViewNotes.getItems().add(this.stringList.get(i));
         }
 
         this.listViewNotes.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
